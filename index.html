@@ -33,14 +33,6 @@
   color: #00ff00; /* Neon green text */
 }
 
-/* Fix background zoom issue on mobile */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll; /* disable fixed on mobile */
-  }
-
-  /* Optional: fake fixed background using ::before */
-  /* Blurred background layer */
 body::before {
   content: "";
   position: fixed;
@@ -48,10 +40,27 @@ body::before {
   width: 100%; height: 100%;
   background: url('hero.jpg') no-repeat center center;
   background-size: cover;
-  filter: blur(8px);       /* adjust blur strength */
+  filter: blur(4px);       /* adjust blur strength */
   transform: scale(1.05);  /* avoids edge clipping */
   z-index: -1;             /* keep it behind content */
 }
+
+/* Fix background zoom issue on mobile */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* disable fixed on mobile */
+  }
+
+  /* Optional: fake fixed background using ::before */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('hero.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* keep behind content */
+  }
 }
 
     html {
@@ -157,7 +166,7 @@ body::before {
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 60vh;
+      height: 40vh;
       padding: 0 20px;
       margin-top: 0;
       padding: 1rem 0rem;
