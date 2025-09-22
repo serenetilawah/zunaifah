@@ -156,22 +156,22 @@
       left: 0;
       width: 100%;
       height: 120px;
-      background-repeat: no-repeat;
-      background-size: cover;
+/*       background-repeat: no-repeat; */
+/*       background-size: cover; */
       z-index: 1;
     }
 
     /* Softer, gentler top wave */
     .hero::before {
       top: -1px;
-      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" fill-opacity="1" d="M0,80 C360,140 1080,20 1440,80 L1440,0 L0,0 Z"></path></svg>');
+/*       background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" fill-opacity="1" d="M0,80 C360,140 1080,20 1440,80 L1440,0 L0,0 Z"></path></svg>'); */
     }
 
     /* Softer bottom wave */
     .hero::after {
       bottom: -1px;
       transform: rotate(180deg);
-      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" fill-opacity="1" d="M0,80 C360,140 1080,20 1440,80 L1440,0 L0,0 Z"></path></svg>');
+/*       background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" fill-opacity="1" d="M0,80 C360,140 1080,20 1440,80 L1440,0 L0,0 Z"></path></svg>'); */
     }
 
     .hero .text {
@@ -307,7 +307,6 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: url('https://i.imgur.com/N7b4fPv.png'); /* subtle grain/noise pattern */
       opacity: 0.08;
       pointer-events: none;
       mix-blend-mode: overlay;
