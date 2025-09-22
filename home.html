@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zunaifah</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Dancing+Script&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet">
+  <style>
+    /*
+        -------------------------------------------------
+        General & Typography
+        -------------------------------------------------
+    */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Set the background image */
+      background-image: url('hero.jpg');
+
+      /* Optional properties for better control */
+      background-repeat: no-repeat;       /* Prevents tiling */
+      background-size: cover;             /* Makes image cover entire element */
+      background-position: center;        /* Centers the image */
+      background-attachment: fixed;       /* Makes the image stay fixed on scroll */
+      color: #00ff00; /* Neon green text */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      letter-spacing: 1.7px;
+    }
+
+    .hey-user {
+      color: #00ff00; /* Neon green */
+    }
+
+    /*
+        -------------------------------------------------
+        Header & Navigation
+        -------------------------------------------------
+    */
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #00ff00; /* Neon green */
+      padding: 0rem 0;
+    }
+
+    /* Desktop Navigation */
+    .nav {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: .4rem;
+      z-index: 10;
+      padding: 0.4rem;
+      background: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(7px);
+    }
+
+    .nav a {
+      color: #00ff00; /* Neon green links */
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 50%;
+      transition: color 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 36px;
+    }
+
+    .nav a:hover {
+      color: #33ff33; /* Brighter green on hover */
+      transform: scale(1.1);
+      background-color: rgba(0, 255, 0, 0.1);
+      box-shadow: 0 0 12px rgba(0, 255, 0, 0.4);
+    }
+
+    .nav a#cart-link-desktop {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.55rem;
+      border-radius: 18px;
+    }
+
+    .cart-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #33ff33; /* Brighter green */
+      background-color: rgba(0, 255, 0, 0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+      min-width: 25px;
+      text-align: center;
+      line-height: 1;
+      box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.25);
+    }
+
+    /*
+        -------------------------------------------------
+        Hero Section
+        -------------------------------------------------
+    */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 90vh;
+      padding: 0 20px;
+      margin-top: 0;
+      padding: 4rem 2rem;
+      color: #00ff00;
+      position: relative;
+      min-height: 270px;
+      overflow: visible;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 1;
+    }
+
+    /* Softer, gentler top wave */
+    .hero::before {
+      top: -1px;
+      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" fill-opacity="1" d="M0,80 C360,140 1080,20 1440,80 L1440,0 L0,0 Z"></path></svg>');
+    }
+
+    /* Softer bottom wave */
+    .hero::after {
+      bottom: -1px;
+      transform: rotate(180deg);
+      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" fill-opacity="1" d="M0,80 C360,140 1080,20 1440,80 L1440,0 L0,0 Z"></path></svg>');
+    }
+
+    .hero .text {
+      margin-top: 10px;
+    }
+
+    .hero .text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .text p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .wavy-text {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      font-weight: 700;
+      /* Neon green gradient */
+      background: linear-gradient(90deg, #00ff00, #008000, #00cc00, #004d00);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* Gradient shimmer */
+      animation: shimmer 6s linear infinite;
+    }
+
+    .wavy-text span {
+      display: inline-block;
+      animation: waveText 1.6s ease-in-out infinite;
+      text-shadow: 1px 1px 6px rgba(0, 255, 0, 0.8);
+    }
+
+    @keyframes wave {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+    }
+    
+    /* Wave animation */
+    @keyframes waveText {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-6px); }
+      75% { transform: translateY(6px); }
+    }
+    
+    /* Gradient shimmer movement */
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .cta-button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: #00ff00; /* Neon green */
+      color: #0a0a0a; /* Dark text */
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.1);
+      background: #33ff33; /* Brighter green on hover */
+    }
+
+    /*
+        -------------------------------------------------
+        User Controls & Login Button
+        -------------------------------------------------
+    */
+
+    .user-controls {
+      position: absolute;
+      top: 25px;
+      right: 10px;
+      z-index: 10;
+    }
+    
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background: #0a0a0a; /* Dark marquee background */
+      color: #00ff00; /* Neon green text */
+      padding: 10px 0;
+      box-sizing: border-box;
+      margin-top: 40px;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 15s linear infinite;
+      padding-left: 100%;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /*
+        -------------------------------------------------
+        About & Contact Sections
+        -------------------------------------------------
+    */
+    .about,
+    .contact {
+      padding: 50px 20px;
+      background: #050505; /* Very dark background */
+      color: #00ff00; /* Neon green text */
+      max-width: 1500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(0, 20, 0, 0.25); /* Darker, richer green tint */
+      backdrop-filter: blur(15px);
+      border: 2px solid rgba(0, 255, 0, 0.7); /* Neon-green vintage glow */
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 0 50px rgba(0, 255, 0, 0.2);
+      font-family: 'Courier New', Courier, monospace; /* Retro vibe */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Optional subtle grain texture overlay */
+    .about::before,
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.imgur.com/N7b4fPv.png'); /* subtle grain/noise pattern */
+      opacity: 0.08;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    .about {
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.5px;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      font-size: 2.3rem;
+      letter-spacing: 2px;
+      color: #00ff00; /* Neon-green heading */
+      text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #1a1a1a; /* Darker input background */
+      color: #00ff00; /* Neon green text */
+      border: 1px solid #006600; /* Green border */
+      border-radius: 5px;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 255, 0, 0.5);
+      font-size: 1rem;
+      font-weight: 500;
+      background: rgba(0, 30, 0, 0.3);
+      box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.3);
+      transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      resize: vertical;
+    }
+
+    .contact input:focus,
+    .contact textarea:focus {
+      background: rgba(0, 30, 0, 0.5);
+      box-shadow: 0 0 12px 2px #00ff00;
+      border-color: #00ff00;
+      outline: none;
+    }
+
+    .contact ::placeholder {
+      color: #99ff99;
+      opacity: 1;
+      font-style: italic;
+    }
+
+    button[type="submit"] {
+      background: #008000; /* Darker green */
+      color: #0a0a0a; /* Dark text */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      padding: 0.9rem 1.5rem;
+      background: linear-gradient(145deg, #003a00, #005b11); /* Soft green gradient */
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.35s ease;
+      box-shadow: 0 6px 15px rgba(0, 255, 0, 0.4), 0 3px 6px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button[type="submit"]:hover {
+      background: #00ff00; /* Neon green on hover */
+      background: linear-gradient(145deg, #00ff00, #008000);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 255, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .contact button::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 0, 0.25) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: scale(0.5);
+    }
+    
+    .contact button:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+
+    /*
+        -------------------------------------------------
+        Footer
+        -------------------------------------------------
+    */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #0a0a0a; /* Dark background */
+      color: #00ff00; /* Neon green text */
+      max-width: 1500px;
+      margin: 0.5rem auto;
+      padding: 1rem 2rem;
+      background: rgba(0, 20, 0, 0.3); /* Dark semi-transparent glass */
+      color: #99ff99; /* Soft neon green text */
+      border: 2px solid rgba(0, 255, 0, 0.7); /* Neon-green border glow */
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.2);
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.imgur.com/N7b4fPv.png');
+      opacity: 0.08;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+    
+    .footer a {
+      color: #00ff00;
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    
+    .footer a:hover {
+      color: #33ff33;
+      text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00;
+    }
+
+
+    /*
+        -------------------------------------------------
+        Responsive Design (Mobile First)
+        -------------------------------------------------
+    */
+
+    /* Mobile-specific elements */
+    .mobile-top-right-elements {
+      display: none;
+    }
+
+    #cart-link-mobile {
+      display: none;
+    }
+
+    /* Default Mobile Styles */
+    @media (max-width: 480px) {
+      .logo {
+        position: absolute;
+        top: 0;
+        left: 300;
+        z-index: 10;
+        padding: 0.5rem 2rem;
+        background: transparent;
+        width: auto;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 0.5rem 0.7rem 0.7rem 0.7rem;
+        min-height: 250px;
+        margin-top: 12px;
+        font-size: 0.95rem;
+      }
+      .hero .text h2 {
+        font-size: 0.95rem;
+      }
+      .hero .text p,
+      .wavy-text {
+        font-size: 0.7rem;
+      }
+
+      .hero .text {
+        position: absolute;
+        padding: 1rem 3rem;
+        top: 70px;
+      }
+
+      .user-controls {
+        top: 22px;
+        right: 11px;
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .profile-avatar {
+        width: 45px;
+        height: 45px;
+      }
+
+      .login-btn {
+        top: 25px;
+        right: 65px;
+      }
+
+      .search-hero-container {
+        top: 170px;
+      }
+
+      .dropdown-menu-container {
+        position: absolute;
+        top: 130px;
+        left:370px;
+        z-index: 10;
+      }
+
+      
+      .dropdown-content a {
+        padding: 8px 10px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+
+      .product-card {
+        padding: 0.7rem;
+      }
+
+      .product-card img {
+        height: 180px;
+      }
+
+      .product-card h3 {
+        font-size: 1rem;
+      }
+
+      .product-card p {
+        font-size: 0.9rem;
+      }
+
+      button.add-to-cart {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      /* Show mobile-specific elements */
+      .mobile-top-right-elements {
+        display: block;
+      }
+    }
+
+    /* Tablet & Smaller Desktop Adjustments */
+    @media (max-width: 768px) {
+      .nav {
+        padding: 0.1rem;
+        top: 20px;
+        right: 1px;
+        gap: 1rem;
+      }
+
+      .nav a {
+        font-size: 1.3rem;
+        min-width: 32px;
+        min-height: 32px;
+      }
+
+      .cart-text {
+        font-size: 0.85rem;
+        padding: 0.1rem 0.4rem;
+      }
+
+      .search-hero-container {
+        top: 270px;
+      }
+    }
+    
+    #welcomeMessage {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #00ff00;
+      color: #000;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+      z-index: 1000;
+      display: none;
+      animation: fadeInOut 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">zunaifah</h1>
+    <nav class="nav">
+      <a href="#home"><i class='bx bx-home'></i></a>
+      <a href="#about"><i class='bx bx-info-circle'></i></a>
+      <a href="#contact"><i class='bx bx-envelope'></i></a>
+    </nav> 
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="text">
+        <p>Discover our luxury fashion experience crafted for the discerning.</p>
+        <p class="wavy-text">Flossiness - we serve, you deserve.</p>
+        <button class="cta-button">Experience Now</button>
+      </div>
+    </section>
+
+    <div id="welcomeMessage">Welcome to zunaifah!</div>
+
+    <section class="marquee-container">
+      <div class="marquee-text">
+        Elegant. Bold. Unique. • Sustainable. Premium. Exclusive. • Style Redefined. • Stay Flossy. •
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>zunaifah</h2>
+      <p>zunaifah is a premier fashion house crafting refined, sustainable luxury apparel. Stay Flossy!</p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form id="contactForm" method="POST" action="/contact">
+        <input type="text" id="contactName" name="name" placeholder="Your Name" required />
+        <input type="email" id="contactEmail" name="email" placeholder="Your Email" required />
+        <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+        <div id="contactFormMessage" style="margin-top: 10px; font-weight: bold;"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 zunaifah. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Wavy text animation
+      const p = document.querySelector(".wavy-text");
+      if (p) {
+        const chars = p.textContent.split("");
+        p.innerHTML = chars.map((char, i) => {
+          return char === " " 
+            ? "&nbsp;" 
+            : `<span style="animation-delay:${i * 0.05}s">${char}</span>`;
+        }).join("");
+      }
+
+      // Replaced alert with a custom message box
+      const ctaButton = document.querySelector(".cta-button");
+      const welcomeMessage = document.getElementById("welcomeMessage");
+
+      ctaButton.addEventListener("click", () => {
+        welcomeMessage.style.display = "block";
+        setTimeout(() => {
+          welcomeMessage.style.display = "none";
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
